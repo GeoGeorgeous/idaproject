@@ -19,8 +19,6 @@ npm run build
 * Сборщик: [Webpack 5](https://webpack.js.org/)
 * Транспиляция JS: [Babel](https://babeljs.io/)
 * HTML: [HtmlWebpackPlugin](https://github.com/jantimon/html-webpack-plugin)
+* CSS: [PostCSS](https://postcss.org/), [autoprefixer](https://github.com/postcss/autoprefixer) (вендорные префиксы), [cssnano](https://github.com/cssnano/cssnano) (минификация), [css-loader](https://webpack.js.org/loaders/css-loader/), [mini-css-extract-plugin](https://webpack.js.org/plugins/mini-css-extract-plugin/)
 * Очистка: [CleanWebPackPlugin](https://github.com/johnagan/clean-webpack-plugin)
-* CSS: [PostCSS](https://postcss.org/), [autoprefixer](https://github.com/postcss/autoprefixer) (вендорные префиксы), [cssnano](https://github.com/cssnano/cssnano) (минификация)
-*
-
 
