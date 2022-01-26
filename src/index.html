@@ -5,13 +5,39 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Добавление товара</title>
+
 </head>
 <body class="root">
   <header class="header">
     <h1 class="header__title">Добавление товара</h1>
     <button class="header__sort-button">По умолчанию</button>
   </header>
+  <section class="products">
+    <form class="products__form" name="" id="" novalidate>
+      <div class="products__form-inputs-group">
+        <label class="products__form-label" for="products__form-label">Наименование товара</label>
+        <input id="" class="products__form-input" type="text" placeholder="Введите наименование товара" name="title" minlength="1" maxlength="30" required>
+        <span id="products__form-error" class="products__form-error"></span>
+      </div>
+      <div class="products__form-inputs-group">
+        <label class="products__form-label" for="products__form-label">Описание товара</label>
+        <textarea rows="5"id="" class="products__form-input products__form-input_text-area" type="text" placeholder="Введите описание товара" name="title" minlength="1" maxlength="30" required></textarea>
+        <span id="products__form-error" class="products__form-error"></span>
+      </div>
+      <div class="products__form-inputs-group">
+        <label class="products__form-label" for="products__form-label">Ссылка на изображение товара</label>
+        <input id="" class="products__form-input" type="text" placeholder="Введите ссылку" name="title" minlength="1" maxlength="30" required>
+        <span id="products__form-error" class="products__form-error"></span>
+      </div>
+      <div class="products__form-inputs-group">
+        <label class="products__form-label" for="products__form-label">Цена товара</label>
+        <input id="" class="products__form-input" type="text" placeholder="Введите цену" name="title" minlength="1" maxlength="30" required>
+        <span id="products__form-error" class="products__form-error"></span>
+      </div>
+      <button class="products__form-save-button" type="submit">Добавить товар</button>
+    </form>
+    <div class="products__item">12321312312123132</div>
+  </section>
   <form></form>
-  <script src="./index.js"></script>
 </body>
 </html>
