@@ -5,3 +5,11 @@
   font-display: swap;
   src: url("./fonts/SourceSansPro-SemiBold.ttf") format("ttf"),
 }
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/SourceSansPro-Regular.ttf") format("ttf"),
+}
