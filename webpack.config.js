@@ -31,13 +31,8 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        // шрифты и SVG
-        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-        type: 'asset/inline',
-      },
-      {
-        // изображения
-        test: /\.(png|jpg|gif|)$/,
+        // файлы
+        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
         type: 'asset/resource'
       },
       {
