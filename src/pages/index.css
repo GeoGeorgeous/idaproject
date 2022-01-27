@@ -12,3 +12,6 @@
 
 /* aside */
 @import url(../blocks/aside/aside.css);
+
+/* form */
+@import url(../blocks/form/form.css);

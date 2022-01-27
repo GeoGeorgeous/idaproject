@@ -1,0 +1,6 @@
+.form__input-group {
+  position: relative;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+}
