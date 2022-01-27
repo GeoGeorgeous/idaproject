@@ -1,7 +1,15 @@
 .root { 
   min-width: 320px; 
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 332px 1fr;
+  grid-template-areas: 
+    "header header" 
+    "aside products";
+  gap: 16px;
   /* max-width: 1280px;  */
   padding: 32px;
+  padding-bottom: 0;
   margin: 0 auto; 
   background-color: #FAF9F7; 
   color: #3F3F3F; 
