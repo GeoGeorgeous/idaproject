@@ -18,6 +18,10 @@ export default class Product {
     .cloneNode(true);
   }
 
+  _formatPrice() {
+    this._productPrice = `${new Intl.NumberFormat('ru-RU').format(this._productPrice)} руб.`
+  }
+
   // _setEventListeners() {
   //   // Получаем разметку кнопок лайка и корзины
   //   this._likeButton = this._productElement.querySelector('.card__like-button');
@@ -40,6 +44,7 @@ export default class Product {
   generateProductMarkUp() {
     // получаем разметку пустого товара из template
     this._cloneTemplate();
+    this._formatPrice();
     // Находим элементы товара:
     this._productNameElement = this._productElement.querySelector('.product__title');
     this._productDescElement = this._productElement.querySelector('.product__desc');
