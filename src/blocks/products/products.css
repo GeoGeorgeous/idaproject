@@ -1,0 +1,5 @@
+@import url(./__items/products__items.css);
+
+.products {
+  grid-area: products;
+}

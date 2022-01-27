@@ -1,0 +1,7 @@
+.aside {
+  max-width: 332px;
+  grid-area: aside;
+  position: sticky;
+  top: 32px;
+  height: 100vh;
+}
