@@ -15,3 +15,9 @@
 
 /* form */
 @import url(../blocks/form/form.css);
+
+/* products */
+@import url(../blocks/products/products.css);
+
+/* product */
+@import url(../blocks/product/product.css);
