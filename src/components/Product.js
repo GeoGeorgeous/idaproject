@@ -63,7 +63,7 @@ export default class Product {
   _removeProduct() {
     // Удаление товара
 
-    this._productElement.classList.add('remove-animation'); // анимация удаления
+    this._productElement.classList.add('remove-product'); // анимация удаления
     const deleteElement = () => { // удаляем элемент после анимации
       this._productElement.remove();
       this._productElement = null;

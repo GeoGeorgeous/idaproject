@@ -12,28 +12,28 @@
     <button class="header__sort-button">По умолчанию</button>
   </header>
   <aside class="aside">
-    <form class="form" novalidate>
+    <form class="form" name="product-form" novalidate>
       <div class="form__input-group">
         <label class="form__label" for="products__form-label">Наименование товара</label>
-        <input class="form__input" type="text" placeholder="Введите наименование товара" name="title" minlength="1" maxlength="30" required>
+        <input class="form__input" type="text" placeholder="Введите наименование товара" name="name" minlength="1" maxlength="30" required>
         <span class="form__error"></span>
       </div>
       <div class="form__input-group">
         <label class="form__label" for="products__form-label">Описание товара</label>
-        <textarea rows="5" class="form__input products__form-input_text-area" type="text" placeholder="Введите описание товара" minlength="1" maxlength="30"></textarea>
+        <textarea name="desc" rows="5" class="form__input products__form-input_text-area" type="text" placeholder="Введите описание товара" minlength="1" maxlength="30"></textarea>
         <span class="form__error"></span>
       </div>
       <div class="form__input-group">
         <label class="form__label" for="products__form-label">Ссылка на изображение товара</label>
-        <input class="form__input" type="text" placeholder="Введите ссылку" name="title" minlength="1" maxlength="30" required>
+        <input name="image" class="form__input" type="text" placeholder="Введите ссылку" name="title" minlength="1" required>
         <span id="products__form-error" class="form__error"></span>
       </div>
       <div class="form__input-group">
         <label class="form__label" for="products__form-label">Цена товара</label>
-        <input class="form__input" type="text" placeholder="Введите цену" name="title" minlength="1" maxlength="30" required>
+        <input class="form__input" type="text" placeholder="Введите цену" name="price" minlength="1" maxlength="30" required>
         <span class="form__error"></span>
       </div>
-      <button class="form__submit-button" type="submit">Добавить товар</button>
+      <button name="submit" class="form__submit-button" type="submit">Добавить товар</button>
     </form>
   </aside>
     <section class="products">

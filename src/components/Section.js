@@ -12,6 +12,7 @@ export default class Section {
   }
 
   addItem(element) {
+    element.classList.add('new-product');
     this._containerElement.prepend(element);
   }
 }

@@ -30,4 +30,4 @@ export default defaultProducts = [
     price: 2000,
   },
 
-]
+];
