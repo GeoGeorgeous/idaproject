@@ -19,3 +19,17 @@
 .product:hover .product__delete-button {
   display: block;
 }
+
+.remove-animation {
+  animation: myAnim 400ms ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

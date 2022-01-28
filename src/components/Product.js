@@ -62,8 +62,12 @@ export default class Product {
   // }
 
   _removeProduct() {
+    this._productElement.classList.add('remove-animation');
+    const deleteElement = () => {
+      this._productElement.remove();
+      this._productElement = null;
+    }
+    setTimeout(deleteElement, 400);
     // Удаляет товар
-    this._productElement.remove();
-    this._productElement = null;
   }
 }
