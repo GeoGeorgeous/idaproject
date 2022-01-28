@@ -2,10 +2,9 @@ import './index.css';
 import Section from '../components/Section';
 import Product from '../components/Product';
 import { productsContainer, formElement, submitButton } from '../utils/elements';
-
 import defaultProducts from '../utils/defaultProducts';
 
-
+// Создание экземпляра секции и дефолтных товаров
 const productsSection = new Section(
   {
     items: defaultProducts,
@@ -20,20 +19,29 @@ const productsSection = new Section(
   productsContainer,
 );
 
+// Рендер дефолных товаров
 productsSection.render();
 
-submitButton.addEventListener('click', (evt) => {
-  evt.preventDefault();
-  const form = new FormData(formElement);
+// Функция возвращает объект с ключами и значениями выбранной формы
+const getInputValues = (selectedForm) => {
+  const form = new FormData(selectedForm);
   const formValues = {};
   /* eslint-disable-next-line */
   for (const [key, value] of form.entries()) {
     formValues[key] = value;
   }
-  console.log(formValues);
+  return formValues;
+};
+
+// Обработчик сабмита формы
+const handleSubmit = (evt) => {
+  evt.preventDefault();
   const newProduct = new Product(
-    formValues,
+    getInputValues(formElement),
     '#product',
   );
-  productsSection.addItem(newProduct.generateProductMarkUp())
-});
+  productsSection.addItem(newProduct.generateProductMarkUp());
+};
+
+// Добавление слушателя на кнопку сабмита
+submitButton.addEventListener('click', handleSubmit);
