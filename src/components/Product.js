@@ -1,12 +1,11 @@
 export default class Product {
 
-  constructor(data, templateSelector, handleCardClick) {
+  constructor(data, templateSelector) {
     this._productName = data.name
     this._productDesc = data.desc
     this._productImage = data.image
     this._productPrice = data.price
     this._templateSelector = templateSelector;
-    // this._handleCardClick = handleCardClick;
   }
 
   _cloneTemplate() {
@@ -19,10 +18,13 @@ export default class Product {
   }
 
   _formatPrice() {
+    // Форматирование цены
     this._productPrice = `${new Intl.NumberFormat('ru-RU').format(this._productPrice)} руб.`
   }
 
   _setEventListeners() {
+    // Установка слушателей
+
     // Получаем разметку кнопку корзины
     this._deleteButton = this._productElement.querySelector('.product__delete-button');
 
@@ -33,16 +35,19 @@ export default class Product {
   }
 
   generateProductMarkUp() {
+    // Генерация html разметки с товаром
+
     // получаем разметку пустого товара из template
     this._cloneTemplate();
     this._formatPrice();
+
     // Находим элементы товара:
     this._productNameElement = this._productElement.querySelector('.product__title');
     this._productDescElement = this._productElement.querySelector('.product__desc');
     this._productImageElement = this._productElement.querySelector('.product__image');
     this._productPriceElement = this._productElement.querySelector('.product__price');
 
-    // Подставляем данные в пустой товар:
+    // Подставляем данные в разметку:
     this._productImageElement.src = this._productImage;
     this._productImageElement.alt = this._productName;
     this._productNameElement.textContent = this._productName;
@@ -56,18 +61,14 @@ export default class Product {
     return this._productElement;
   }
 
-  // _likeCard() {
-  //   // Ставит лайк
-  //   this._likeButton.classList.toggle('card__like-button_active');
-  // }
-
   _removeProduct() {
-    this._productElement.classList.add('remove-animation');
-    const deleteElement = () => {
+    // Удаление товара
+
+    this._productElement.classList.add('remove-animation'); // анимация удаления
+    const deleteElement = () => { // удаляем элемент после анимации
       this._productElement.remove();
       this._productElement = null;
     }
-    setTimeout(deleteElement, 400);
-    // Удаляет товар
+    setTimeout(deleteElement, 420);
   }
 }
