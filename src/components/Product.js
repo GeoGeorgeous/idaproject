@@ -22,24 +22,15 @@ export default class Product {
     this._productPrice = `${new Intl.NumberFormat('ru-RU').format(this._productPrice)} руб.`
   }
 
-  // _setEventListeners() {
-  //   // Получаем разметку кнопок лайка и корзины
-  //   this._likeButton = this._productElement.querySelector('.card__like-button');
-  //   this._deleteButton = this._productElement.querySelector('.card__delete-button');
+  _setEventListeners() {
+    // Получаем разметку кнопку корзины
+    this._deleteButton = this._productElement.querySelector('.product__delete-button');
 
-  //   // Добаляем слушатель на кнопку лайка:
-  //   this._likeButton.addEventListener('click', () => {
-  //     this._likeCard();
-  //   })
-
-  //   // Добавляем слушатель на кнопку корзины:
-  //   this._deleteButton.addEventListener('click', () => {
-  //     this._removeCard();
-  //   })
-
-  //   // Добавляем слушатель lightbox:
-  //   this._cardImageElement.addEventListener('click', this._handleCardClick)
-  // }
+    // Добавляем слушатель на кнопку корзины:
+    this._deleteButton.addEventListener('click', () => {
+      this._removeProduct();
+    })
+  }
 
   generateProductMarkUp() {
     // получаем разметку пустого товара из template
@@ -59,7 +50,7 @@ export default class Product {
     this._productPriceElement.textContent = this._productPrice;
 
     // Навешиваем слушателей событий:
-    // this._setEventListeners();
+    this._setEventListeners();
 
     // Возваращем готовую верстку товара
     return this._productElement;
@@ -70,9 +61,9 @@ export default class Product {
   //   this._likeButton.classList.toggle('card__like-button_active');
   // }
 
-  // _removeCard() {
-  //   // Удаляет карточку
-  //   this._productElement.remove();
-  //   this._productElement = null;
-  // }
+  _removeProduct() {
+    // Удаляет товар
+    this._productElement.remove();
+    this._productElement = null;
+  }
 }
