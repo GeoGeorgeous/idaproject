@@ -1,8 +1,11 @@
 import './index.css';
 import Section from '../components/Section';
 import Product from '../components/Product';
-import { productsContainer, formElement, submitButton } from '../utils/elements';
+import {
+  productsContainer, formElement, submitButton, inputSelector, errorClass,
+} from '../utils/elements';
 import defaultProducts from '../utils/defaultProducts';
+import FormValidator from '../components/FormValidator';
 
 // Создание экземпляра секции и дефолтных товаров
 const productsSection = new Section(
@@ -41,7 +44,17 @@ const handleSubmit = (evt) => {
     '#product',
   );
   productsSection.addItem(newProduct.generateProductMarkUp());
+  formElement.removeEventListener('submit', handleSubmit);
+  formElement.reset();
 };
 
 // Добавление слушателя на кнопку сабмита
-submitButton.addEventListener('click', handleSubmit);
+formElement.addEventListener('submit', handleSubmit);
+
+const formValidator = new FormValidator(
+  submitButton,
+  inputSelector,
+  errorClass,
+  formElement,
+);
+formValidator.enableValidation();

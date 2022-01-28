@@ -27,5 +27,5 @@ textarea.form__input {
 }
 
 .form__input:focus {
-  border:1px solid #7BAE73;
+  border: 1px solid #7BAE73;
 }
