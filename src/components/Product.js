@@ -1,25 +1,24 @@
 export default class Product {
-
   constructor(data, templateSelector) {
-    this._productName = data.name
-    this._productDesc = data.desc
-    this._productImage = data.image
-    this._productPrice = data.price
+    this._productName = data.name;
+    this._productDesc = data.desc;
+    this._productImage = data.image;
+    this._productPrice = data.price;
     this._templateSelector = templateSelector;
   }
 
   _cloneTemplate() {
     // Клонирует template и записывает пустой клон в this._productElement:
     this._productElement = document
-    .querySelector(this._templateSelector)
-    .content
-    .querySelector('.product')
-    .cloneNode(true);
+      .querySelector(this._templateSelector)
+      .content
+      .querySelector('.product')
+      .cloneNode(true);
   }
 
   _formatPrice() {
     // Форматирование цены
-    this._productPrice = `${new Intl.NumberFormat('ru-RU').format(this._productPrice)} руб.`
+    this._productPrice = `${new Intl.NumberFormat('ru-RU').format(this._productPrice)} руб.`;
   }
 
   _setEventListeners() {
@@ -31,7 +30,7 @@ export default class Product {
     // Добавляем слушатель на кнопку корзины:
     this._deleteButton.addEventListener('click', () => {
       this._removeProduct();
-    })
+    });
   }
 
   generateProductMarkUp() {
@@ -68,7 +67,7 @@ export default class Product {
     const deleteElement = () => { // удаляем элемент после анимации
       this._productElement.remove();
       this._productElement = null;
-    }
+    };
     setTimeout(deleteElement, 420);
   }
 }
