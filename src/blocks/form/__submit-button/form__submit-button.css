@@ -26,6 +26,12 @@
   outline: none;
 }
 
-.form__submit-button:hover {
+.form__submit-button:enabled:hover {
   opacity: .8;
+}
+
+.form__submit-button:disabled {
+  background-color: #eee;
+  color: #B4B4B4;
+  cursor: default;
 }
