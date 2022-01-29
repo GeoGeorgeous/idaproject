@@ -18,7 +18,7 @@ export default class Section {
     }
   }
 
-  sortByProperty(property, type) {
+  sortByProperty(type) {
     // Сортировка товаров
     let isSorted = false;
 
@@ -28,12 +28,26 @@ export default class Section {
     }
     if (type === 'byPriceIncrease') {
       // по возрастанию
-      this._itemsSorted = [...this._items].sort((a, b) => a[property] - b[property]);
+      this._itemsSorted = [...this._items].sort((a, b) => a.price - b.price);
       isSorted = true;
     }
     if (type === 'byPriceDecrease') {
       // по убыванию
-      this._itemsSorted = [...this._items].sort((a, b) => b[property] - a[property]);
+      this._itemsSorted = [...this._items].sort((a, b) => b.price - a.price);
+      isSorted = true;
+    }
+    if (type === 'byName') {
+      // по названию
+      this._itemsSorted = [...this._items]
+        .sort((a, b) => {
+          if (a.name.toLowerCase() < b.name.toLowerCase()) {
+            return -1;
+          }
+          if (a.name.toLowerCase() > b.name.toLowerCase()) {
+            return 1;
+          }
+          return 0;
+        });
       isSorted = true;
     }
     this.render(isSorted); // рендерим новое положение товаров

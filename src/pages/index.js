@@ -67,7 +67,7 @@ formValidator.enableValidation();
 
 // Обработчик сортировки
 const handleSorting = () => {
-  productsSection.sortByProperty('price', sortButton.value);
+  productsSection.sortByProperty(sortButton.value);
 };
 
 sortButton.addEventListener('change', handleSorting);
