@@ -1,3 +1,4 @@
+/* eslint-disable */
 import productImage1 from '../images/product.jpg';
 import productImage2 from '../images/product2.jpg';
 import productImage3 from '../images/product3.jpg';

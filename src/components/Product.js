@@ -1,10 +1,11 @@
 export default class Product {
-  constructor(data, templateSelector) {
-    this._productName = data.name;
-    this._productDesc = data.desc;
-    this._productImage = data.image;
-    this._productPrice = data.price;
+  constructor(data, templateSelector, callback) {
+    this.name = data.name;
+    this.desc = data.desc;
+    this.image = data.image;
+    this.price = data.price;
     this._templateSelector = templateSelector;
+    this._callback = callback;
   }
 
   _cloneTemplate() {
@@ -18,7 +19,7 @@ export default class Product {
 
   _formatPrice() {
     // Форматирование цены
-    this._productPrice = `${new Intl.NumberFormat('ru-RU').format(this._productPrice)} руб.`;
+    this._productPriceFormated = `${new Intl.NumberFormat('ru-RU').format(this.price)} руб.`;
   }
 
   _setEventListeners() {
@@ -47,11 +48,11 @@ export default class Product {
     this._productPriceElement = this._productElement.querySelector('.product__price');
 
     // Подставляем данные в разметку:
-    this._productImageElement.src = this._productImage;
-    this._productImageElement.alt = this._productName;
-    this._productNameElement.textContent = this._productName;
-    this._productDescElement.textContent = this._productDesc;
-    this._productPriceElement.textContent = this._productPrice;
+    this._productImageElement.src = this.image;
+    this._productImageElement.alt = this.name;
+    this._productNameElement.textContent = this.name;
+    this._productDescElement.textContent = this.desc;
+    this._productPriceElement.textContent = this._productPriceFormated;
 
     // Навешиваем слушателей событий:
     this._setEventListeners();
@@ -62,8 +63,8 @@ export default class Product {
 
   _removeProduct() {
     // Удаление товара
-
     this._productElement.classList.add('remove-product'); // анимация удаления
+    this._callback(this);
     const deleteElement = () => { // удаляем элемент после анимации
       this._productElement.remove();
       this._productElement = null;

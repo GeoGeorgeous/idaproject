@@ -2,7 +2,7 @@ import './index.css';
 import Section from '../components/Section';
 import Product from '../components/Product';
 import {
-  productsContainer, formElement, submitButton, inputSelector, errorClass,
+  productsContainer, formElement, submitButton, inputSelector, errorClass, sortButton,
 } from '../utils/elements';
 import defaultProducts from '../utils/defaultProducts';
 import FormValidator from '../components/FormValidator';
@@ -15,6 +15,9 @@ const productsSection = new Section(
       const product = new Product(
         data,
         '#product',
+        (selectedProduct) => {
+          productsSection.deleteItem(selectedProduct);
+        },
       );
       productsContainer.append(product.generateProductMarkUp());
     },
@@ -39,12 +42,13 @@ const getInputValues = (selectedForm) => {
 // Обработчик сабмита формы
 const handleSubmit = (evt) => {
   evt.preventDefault();
+  const inputData = getInputValues(formElement);
   const newProduct = new Product(
-    getInputValues(formElement),
+    inputData,
     '#product',
   );
-  productsSection.addItem(newProduct.generateProductMarkUp());
-  formElement.removeEventListener('submit', handleSubmit);
+  productsSection.addItem(inputData, newProduct.generateProductMarkUp());
+  // formElement.removeEventListener('submit', handleSubmit);
   formElement.reset();
 };
 
@@ -57,4 +61,13 @@ const formValidator = new FormValidator(
   errorClass,
   formElement,
 );
+
+// Активация валидатора
 formValidator.enableValidation();
+
+// Обработчик сортировки
+const handleSorting = () => {
+  productsSection.sortByProperty('price', sortButton.value);
+};
+
+sortButton.addEventListener('change', handleSorting);

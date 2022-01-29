@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default class FormValidator {
   constructor(submitButton, inputSelector, errorClass, form) {
     this._form = form;
