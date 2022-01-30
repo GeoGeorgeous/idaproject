@@ -26,7 +26,8 @@ const productsSection = new Section(
         data,
         '#product',
         (selectedProduct) => {
-          notify.popup('Товар успешно удалён');
+          console.log(selectedProduct)
+          notify.popup(`Товар «${selectedProduct.name}» успешно удалён`);
           productsSection.deleteItem(selectedProduct);
         },
       );
@@ -58,14 +59,14 @@ const handleSubmit = (evt) => {
     inputData,
     '#product',
     (selectedProduct) => {
-      notify.popup('Товар успешно удалён');
+      notify.popup(`Товар «${selectedProduct.name}» успешно удалён`);
       productsSection.deleteItem(selectedProduct);
     },
   );
   productsSection.addItem(inputData, newProduct.generateProductMarkUp());
   // formElement.removeEventListener('submit', handleSubmit);
   formElement.reset();
-  notify.popup('Товар успешно добавлен');
+  notify.popup(`Товар  «${newProduct.name}» успешно добавлен`);
 };
 
 // Добавление слушателя на кнопку сабмита
@@ -82,8 +83,8 @@ const formValidator = new FormValidator(
 formValidator.enableValidation();
 
 // Обработчик сортировки
-const handleSorting = () => {
-  notify.popup('Отсортировано!');
+const handleSorting = (event) => {
+  notify.popup(`Товары отсортированы ${event.target.options[event.target.selectedIndex].text.toLowerCase()}`);
   productsSection.sortByProperty(sortButton.value);
 };
 

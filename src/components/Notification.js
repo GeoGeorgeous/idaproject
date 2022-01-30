@@ -35,6 +35,6 @@ export default class Notification {
       element.classList.add('hided');
     };
     animatePopUp(newPopUp);
-    setTimeout(() => animateHideOut(newPopUp), 4000);
+    setTimeout(() => animateHideOut(newPopUp), 5000);
   }
 }
