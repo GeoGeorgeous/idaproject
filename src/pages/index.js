@@ -1,11 +1,21 @@
+/* eslint-disable */
 import './index.css';
 import Section from '../components/Section';
 import Product from '../components/Product';
 import {
-  productsContainer, formElement, submitButton, inputSelector, errorClass, sortButton,
+  productsContainer,
+  formElement,
+  submitButton,
+  inputSelector,
+  errorClass,
+  sortButton,
+  notificationsSelector,
 } from '../utils/elements';
+import Notification from '../components/Notification';
 import defaultProducts from '../utils/defaultProducts';
 import FormValidator from '../components/FormValidator';
+
+const notify = new Notification(notificationsSelector);
 
 // Создание экземпляра секции и дефолтных товаров
 const productsSection = new Section(
@@ -16,6 +26,7 @@ const productsSection = new Section(
         data,
         '#product',
         (selectedProduct) => {
+          notify.popup('Товар успешно удалён');
           productsSection.deleteItem(selectedProduct);
         },
       );
@@ -46,10 +57,15 @@ const handleSubmit = (evt) => {
   const newProduct = new Product(
     inputData,
     '#product',
+    (selectedProduct) => {
+      notify.popup('Товар успешно удалён');
+      productsSection.deleteItem(selectedProduct);
+    },
   );
   productsSection.addItem(inputData, newProduct.generateProductMarkUp());
   // formElement.removeEventListener('submit', handleSubmit);
   formElement.reset();
+  notify.popup('Товар успешно добавлен');
 };
 
 // Добавление слушателя на кнопку сабмита
@@ -67,6 +83,7 @@ formValidator.enableValidation();
 
 // Обработчик сортировки
 const handleSorting = () => {
+  notify.popup('Отсортировано!');
   productsSection.sortByProperty(sortButton.value);
 };
 

@@ -1,5 +1,5 @@
-/* normalize.css */ 
-@import url(../vendor/normalize.css); 
+/* normalize.css */
+@import url(../vendor/normalize.css);
 
 /* fonts */
 @import url(../vendor/fonts.css);
@@ -21,3 +21,6 @@
 
 /* product */
 @import url(../blocks/product/product.css);
+
+/* notifications */
+@import url(../blocks/notification/notification.css);
