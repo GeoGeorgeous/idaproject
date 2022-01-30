@@ -1,8 +1,9 @@
 export default class Section {
-  constructor({ items, renderer }, containerElement) {
+  constructor({ items, renderer }, containerElement, handleLocalChange) {
     this._items = items;
     this._renderer = renderer;
     this._containerElement = containerElement;
+    this._handleLocalChange = handleLocalChange;
   }
 
   render(sorted = false) {
@@ -16,6 +17,7 @@ export default class Section {
         this._renderer(item);
       });
     }
+    this._handleLocalChange(this._items);
   }
 
   sortByProperty(type) {
@@ -56,6 +58,7 @@ export default class Section {
   addItem(data, element) {
     // Добавление товара
     this._items.unshift(data);
+    this._handleLocalChange(this._items);
     element.classList.add('new-product');
     this._containerElement.prepend(element);
   }
@@ -78,5 +81,6 @@ export default class Section {
             return false;
           },
         ), 1); // удаляем только первое совпдаение
+    this._handleLocalChange(this._items);
   }
 }

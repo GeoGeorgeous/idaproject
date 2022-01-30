@@ -1,4 +1,3 @@
-/* eslint-disable */
 import './index.css';
 import Section from '../components/Section';
 import Product from '../components/Product';
@@ -15,18 +14,34 @@ import Notification from '../components/Notification';
 import defaultProducts from '../utils/defaultProducts';
 import FormValidator from '../components/FormValidator';
 
+let productsState;
+
+// Создание экземпляра оповещений
 const notify = new Notification(notificationsSelector);
+
+const handleLocalStorage = () => {
+  const store = localStorage.getItem('products');
+  if (!store) {
+    localStorage.setItem('products', JSON.stringify(defaultProducts));
+  }
+  productsState = JSON.parse(localStorage.getItem('products'));
+};
+
+const handleLocalChange = (data) => {
+  localStorage.setItem('products', JSON.stringify(data));
+};
+
+handleLocalStorage();
 
 // Создание экземпляра секции и дефолтных товаров
 const productsSection = new Section(
   {
-    items: defaultProducts,
+    items: productsState,
     renderer: (data) => {
       const product = new Product(
         data,
         '#product',
         (selectedProduct) => {
-          console.log(selectedProduct)
           notify.popup(`Товар «${selectedProduct.name}» успешно удалён`);
           productsSection.deleteItem(selectedProduct);
         },
@@ -35,6 +50,7 @@ const productsSection = new Section(
     },
   },
   productsContainer,
+  handleLocalChange,
 );
 
 // Рендер дефолных товаров
