@@ -29,6 +29,12 @@
   animation: removeAnim 400ms ease-in-out 0s 1 normal forwards;
 }
 
+@media screen and (max-width: 768px) {
+  .product {
+    width: 100%;
+  }
+}
+
 @keyframes removeAnim {
   0% {
     opacity: 1;

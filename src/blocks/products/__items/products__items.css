@@ -8,3 +8,10 @@
   justify-items: center;
   justify-content: center;
 }
+
+@media screen and (max-width: 768px) {
+  .products__items {
+    display: flex;
+    flex-flow: column;
+  }
+}

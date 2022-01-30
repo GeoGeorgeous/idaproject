@@ -5,3 +5,13 @@
   top: 32px;
   height: 100vh;
 }
+
+@media screen and (max-width: 415px) {
+  .aside {
+    position: static;
+    max-width: none;
+    width: 100%;
+    height: auto;
+    margin: 16px 0;
+  }
+}

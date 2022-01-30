@@ -18,6 +18,7 @@ let productsState;
 
 // Создание экземпляра оповещений
 const notify = new Notification(notificationsSelector);
+notify.popup(`Сайзы: ${window.innerWidth}, ${document.innerWidth}`);
 
 const handleLocalStorage = () => {
   const store = localStorage.getItem('products');

@@ -20,8 +20,10 @@
   color: #B4B4B4;
 
   background-image: url('../../../images/toggle-icon.svg');
-  background-position: 142px 15px;
+  background-position: 90% 15px;
   background-repeat: no-repeat;
+  text-align: center;
+  text-align: -webkit-center;
 }
 
 .header__sort-button:focus {
@@ -31,4 +33,13 @@
 .header__sort-button:hover {
   color: #3F3F3F;
   background-image: url('../../../images/toggle-icon_hovered.svg');
+}
+
+@media screen and (max-width: 768px) {
+  .header__sort-button {
+    margin-top: 16px;
+    width: 100%;
+    color: #3F3F3F;
+    font-size: 14px;
+  }
 }

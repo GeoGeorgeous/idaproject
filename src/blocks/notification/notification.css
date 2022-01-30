@@ -47,6 +47,17 @@
   animation: hide 1s ease 0s 1 normal forwards;
 }
 
+@media screen and (max-width: 414px) {
+  .notifications {
+  left: 50%;
+  margin-left: -164px;
+  bottom: 16px;
+  }
+  .notification {
+    max-width: 328px;
+  }
+}
+
 @keyframes popup {
   0% {
     opacity: 0;
