@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default class FormValidator {
   constructor(submitButton, inputSelector, errorClass, form) {
     this._form = form;
@@ -8,6 +7,7 @@ export default class FormValidator {
   }
 
   _checkInputValidity(inputElement) {
+    // проверяем валидность и показываем ошибки
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement, inputElement.validationMessage);
     } else {
@@ -16,31 +16,37 @@ export default class FormValidator {
   }
 
   _showInputError(inputElement, errorMessage) {
+    // показ ошибки
     const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     errorElement.textContent = errorMessage;
     inputElement.classList.add(this._errorClass);
   }
 
   _hideInputError(inputElement) {
+    // прячем ошибку
     const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     errorElement.textContent = '';
     inputElement.classList.remove(this._errorClass);
   }
 
   _enableBtn() {
+    // делаем кнопку активной
     this._submitBtn.disabled = false;
   }
 
   _disableBtn() {
+    // деактивируем кнопку
     this._submitBtn.disabled = true;
   }
 
-  _hasInvalidInput(inputList) {
-    return inputList.some((inputValue) => !inputValue.validity.valid);
+  _hasInvalidInput() {
+    // проверяем валидность инпута
+    return this._inputList.some((inputValue) => !inputValue.validity.valid);
   }
 
-  _toggleButtonState(inputList) {
-    if (this._hasInvalidInput(inputList)) {
+  _toggleButtonState() {
+    // переключаем кнопку в зависимости от того, валидный ли инпут в форме
+    if (this._hasInvalidInput()) {
       this._disableBtn();
     } else {
       this._enableBtn();
@@ -48,6 +54,7 @@ export default class FormValidator {
   }
 
   _setEventListeners() {
+    // навешиваем слушателей
     this._toggleButtonState(this._inputList);
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
@@ -58,6 +65,7 @@ export default class FormValidator {
   }
 
   enableValidation() {
+    // включаем валидацию
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
       this._disableBtn();

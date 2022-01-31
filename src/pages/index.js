@@ -1,4 +1,3 @@
-/* eslint-disable */
 import './index.css';
 import Section from '../components/Section';
 import Product from '../components/Product';
@@ -9,18 +8,12 @@ import {
   inputSelector,
   errorClass,
   sortButton,
-  notificationsSelector,
 } from '../utils/elements';
 import Notification from '../components/Notification';
 import defaultProducts from '../utils/defaultProducts';
 import FormValidator from '../components/FormValidator';
 
 let productsState;
-
-// Создание экземпляра оповещений
-// const notify = new Notification(notificationsSelector);
-new Notification(`Ширина экрана: ${window.innerWidth}`).popup();
-new Notification('Всё хорошо!').popup();
 
 const handleLocalStorage = () => {
   const store = localStorage.getItem('products');
@@ -45,7 +38,7 @@ const productsSection = new Section(
         data,
         '#product',
         (selectedProduct) => {
-          new Notification(notificationsSelector).popup(`Товар «${selectedProduct.name}» успешно удалён`);
+          new Notification(`Товар «${selectedProduct.name}» успешно удалён`).popup();
           productsSection.deleteItem(selectedProduct);
         },
       );
@@ -78,14 +71,14 @@ const handleSubmit = (evt) => {
     inputData,
     '#product',
     (selectedProduct) => {
-      new Notification(notificationsSelector).popup(`Товар «${selectedProduct.name}» успешно удалён`);
+      new Notification(`Товар «${selectedProduct.name}» успешно удалён`).popup();
       productsSection.deleteItem(selectedProduct);
     },
   );
   productsSection.addItem(inputData, newProduct.generateProductMarkUp());
   // formElement.removeEventListener('submit', handleSubmit);
   formElement.reset();
-  new Notification(notificationsSelector).popup(`Товар  «${newProduct.name}» успешно добавлен`);
+  new Notification(`Товар  «${newProduct.name}» успешно добавлен`).popup();
 };
 
 // Добавление слушателя на кнопку сабмита
@@ -103,7 +96,7 @@ formValidator.enableValidation();
 
 // Обработчик сортировки
 const handleSorting = (event) => {
-  new Notification(notificationsSelector).popup(`Товары отсортированы ${event.target.options[event.target.selectedIndex].text.toLowerCase()}`);
+  new Notification(`Товары отсортированы ${event.target.options[event.target.selectedIndex].text.toLowerCase()}`).popup();
   productsSection.sortByProperty(sortButton.value);
 };
 
