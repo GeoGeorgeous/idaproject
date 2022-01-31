@@ -24,15 +24,15 @@ export default class Notification {
     const newPopUp = this._createNotification(message);
     this._notifications.append(newPopUp);
     const animatePopUp = (element) => {
-      element.classList.remove('hided');
-      element.classList.add('shown');
+      element.classList.remove('notification__message_hided');
+      element.classList.add('notification__message_shown');
     };
 
     const animateHideOut = (element) => {
       setTimeout(() => {
-        element.classList.remove('shown');
+        element.classList.remove('notification__message_shown');
       }, 1000);
-      element.classList.add('hided');
+      element.classList.add('notification__message_hided');
     };
     animatePopUp(newPopUp);
     setTimeout(() => animateHideOut(newPopUp), 5000);

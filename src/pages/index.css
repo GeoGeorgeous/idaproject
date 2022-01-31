@@ -23,4 +23,5 @@
 @import url(../blocks/product/product.css);
 
 /* notifications */
+@import url(../blocks/notifications/notifications.css);
 @import url(../blocks/notification/notification.css);

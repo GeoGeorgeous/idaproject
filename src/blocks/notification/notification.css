@@ -1,16 +1,9 @@
 @import url(./__message/notification__message.css);
-
-
- .notifications {
-  position: fixed;
-  bottom: 32px;
-  left: 32px;
-  display: flex;
-  flex-flow: column nowrap;
- }
+@import url(./__message/_hided/notification__message_hided.css);
+@import url(./__message/_shown/notification__message_shown.css);
 
 .notification {
-  display: none;
+  /* display: none; */
   width: 332px;
   min-height: 38px;
   background-color: #fff;
@@ -38,47 +31,9 @@
   animation: bounce 1s ease 0s infinite normal forwards;
 }
 
-.shown {
-  display: flex;
-  animation: popup 1s ease 0s 1 normal forwards;
-}
-
-.hided {
-  animation: hide 1s ease 0s 1 normal forwards;
-}
-
 @media screen and (max-width: 414px) {
-  .notifications {
-  left: 50%;
-  margin-left: -164px;
-  bottom: 16px;
-  }
   .notification {
     max-width: 328px;
-  }
-}
-
-@keyframes popup {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes hide {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(-50px);
   }
 }
 
