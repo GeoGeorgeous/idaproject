@@ -1,7 +1,7 @@
 # Тестовое задание для idaproject
 #### Тестовое задание для [Idaproject](https://idaproject.com/)
-[Описание задания](link)
-[Макет](https://www.figma.com/file/pDYoKTprsV7DOigFGPOZpG/Junior-frontend-developer-test-%28Copy%29?node-id=0:1) (figma)
+- [Описание задания](https://github.com/GeoGeorgeous/idaproject/blob/main/TAKS.md)
+- [Макет](https://www.figma.com/file/pDYoKTprsV7DOigFGPOZpG/Junior-frontend-developer-test-%28Copy%29?node-id=0:1) (figma)
 
 > Задание было выполнено без использования Vue.js
 
