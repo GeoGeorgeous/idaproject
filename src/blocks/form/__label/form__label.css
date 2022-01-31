@@ -1,3 +1,5 @@
+@import url(./_required/form__label_required.css);
+
 .form__label {
   font-family: 'Source Sans Pro';
   font-style: normal;
@@ -8,14 +10,4 @@
   color: #49485E;
   display: block;
   margin: 0px 0px 4px 0px;
-}
-
-.required {
-  display: inline-block;
-  position: absolute;
-  height: 4px;
-  width: 4px;
-  background-image: url("/src/images/required.svg");
-  background-position: center center;
-  background-repeat: no-repeat;
 }
