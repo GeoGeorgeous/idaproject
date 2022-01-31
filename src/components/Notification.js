@@ -1,11 +1,12 @@
 export default class Notification {
-  constructor(notificationsSelector) {
-    this._notifications = notificationsSelector;
-    // this._notification = this._notifications.querySelector('.notification');
-    // this._message = this._notification.querySelector('.notification__message');
+  constructor(message) {
+    this._notifications = document.querySelector('.notifications');
+    this._message = message;
+    this._element = null;
   }
 
   _cloneNode() {
+    // Клонируем элемент оповещения
     this._notificationElement = document
       .querySelector('#notification')
       .content
@@ -13,28 +14,36 @@ export default class Notification {
       .cloneNode(true);
   }
 
-  _createNotification(message) {
+  _createNotification() {
+    // Возвращаем наполненный элемент оповещения
     this._cloneNode();
-    this._notificationElement.querySelector('.notification__message').textContent = message;
-    // this._notifications.prepend(this._notificationElement);
+    this._notificationElement.querySelector('.notification__message').textContent = this._message;
     return this._notificationElement;
   }
 
-  popup(message) {
-    const newPopUp = this._createNotification(message);
-    this._notifications.append(newPopUp);
-    const animatePopUp = (element) => {
-      element.classList.remove('notification__message_hided');
-      element.classList.add('notification__message_shown');
-    };
+  _animatePopUp() {
+    // Показываем элемент с анимацией
+    this._element.classList.remove('notification__message_hided');
+    this._element.classList.add('notification__message_shown');
+  }
 
-    const animateHideOut = (element) => {
-      setTimeout(() => {
-        element.classList.remove('notification__message_shown');
-      }, 1000);
-      element.classList.add('notification__message_hided');
-    };
-    animatePopUp(newPopUp);
-    setTimeout(() => animateHideOut(newPopUp), 5000);
+  _animateHideOut() {
+    // Убираем элемент
+    setTimeout(() => {
+      this._element.classList.remove('notification__message_shown');
+      this._element.classList.add('notification__message_hided');
+    }, 1000);
+    setTimeout(() => {
+      // Удаляем элемент из DOM после всех анимаций
+      this._element.remove();
+      this._element = null;
+    }, 2000);
+  }
+
+  popup() {
+    this._element = this._createNotification(); // создаём элемент
+    this._notifications.append(this._element); // добавляем элемент в DOM-дерево
+    this._animatePopUp(); // анимация появления
+    setTimeout(() => this._animateHideOut(), 5000); // через 5 секунд удаляем элемент с анимацией
   }
 }

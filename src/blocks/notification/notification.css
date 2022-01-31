@@ -3,7 +3,7 @@
 @import url(./__message/_shown/notification__message_shown.css);
 
 .notification {
-  /* display: none; */
+  display: flex;
   width: 332px;
   min-height: 38px;
   background-color: #fff;
