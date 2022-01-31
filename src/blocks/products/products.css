@@ -2,4 +2,5 @@
 
 .products {
   grid-area: products;
+  width: 100%;
 }
