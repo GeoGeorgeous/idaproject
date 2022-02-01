@@ -23,7 +23,7 @@ npm run build
 ```
 
 #### Deploy
-Проект [задеплоен на GitHub Pages](https://github.com/GeoGeorgeous/idaproject/deployments/activity_log?environment=github-pages)
+Проект [задеплоен на GitHub Pages](https://geogeorgeous.github.io/idaproject/)
 Для деплоя использованы скрипты predeploy и deploy
 
 ## Сборка:
