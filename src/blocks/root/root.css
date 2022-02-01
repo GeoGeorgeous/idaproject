@@ -9,9 +9,8 @@
     "aside products";
   gap: 16px;
   padding: 32px;
-  padding-bottom: 0;
   margin: 0 auto;
-  background-color: #FAF9F7;
+  background: #fffefb;
   color: #3F3F3F;
   /* fonts */
   font-family: 'Source Sans Pro', sans-serif;
